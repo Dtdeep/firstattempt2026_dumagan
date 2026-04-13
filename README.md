@@ -72,9 +72,48 @@ http://localhost:3000/admin-analytics<br>
 <img width="197" height="454" alt="chrome_B2FlK3ZfWq" src="https://github.com/user-attachments/assets/1c9fa0ed-3dda-46c3-a691-5b4e9d36bd5f" />
 
 
-#### Installation
-To replicate and run this project follow the following steps using Windows Command Line:
+### Installation
+Follow the steps below to run the project locally.
 
+#### 1. Clone the repository
+
+Using **SSH**
+```bash
+git clone git@github.com:Dtdeep/firstattempt2026_dumagan.git
+```
+
+Or using **HTTPS**
+```bash
+git clone https://github.com/Dtdeep/firstattempt2026_dumagan.git
+```
+
+#### 2. Go to the project folder
+```bash
+cd firstattempt2026_dumagan
+```
+
+#### 3. Install dependencies
+```bash
+npm install
+```
+
+#### 4. Start the development server
+```bash
+npm run dev
+```
+
+#### 5. Open in your browser
+Open this URL in your browser:
+```
+http://localhost:3000
+```
+
+#### Requirements
+- Node.js v18 or later
+- npm
+
+### AI Tools:
+1. Claude Haiku 4.5
 
 
 
