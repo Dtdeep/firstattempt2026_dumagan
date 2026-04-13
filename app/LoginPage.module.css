@@ -285,18 +285,47 @@
 @media (min-width: 640px) {
   .container {
     background: linear-gradient(135deg, #f5f5f5 0%, #f0f0f0 100%);
+    flex-direction: row;
   }
 
   .header {
     background: transparent;
+    display: none;
+  }
+
+  .heroSection {
+    flex: 1;
+    padding: 60px 40px;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 !important;
+    border-radius: 0;
   }
 
   .heroTitle {
-    font-size: 32px;
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
   }
 
   .heroSubtitle {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .content {
+    flex: 1;
+    max-width: none;
+    margin: 0;
+    padding: 40px;
+    background: white;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .tabs {
@@ -327,5 +356,31 @@
   .oauthButton {
     padding: 14px 18px;
     font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    padding: 60px 80px;
+  }
+
+  .heroSection {
+    padding: 80px 60px;
+  }
+
+  .heroTitle {
+    font-size: 56px;
+  }
+
+  .heroSubtitle {
+    font-size: 20px;
+  }
+
+  .form {
+    gap: 20px;
+  }
+
+  .submitButton {
+    padding: 16px 20px;
   }
 }

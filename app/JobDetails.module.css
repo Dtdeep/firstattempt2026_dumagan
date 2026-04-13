@@ -1,0 +1,432 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Header */
+.header {
+  background: white;
+  padding: 16px 20px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.backBtn,
+.shareBtn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: default;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.headerTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 24px 20px;
+  overflow-y: auto;
+  padding-bottom: 120px;
+}
+
+/* Company Icon Section */
+.companyIconSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.companyIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+}
+
+/* Job Title Section */
+.jobTitleSection {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.jobTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.jobMeta {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 4px 0;
+}
+
+.jobPostedInfo {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* Match Score Section */
+.matchScoreSection {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.matchScoreContent {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.matchScoreText {
+  flex: 1;
+}
+
+.matchScoreTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.matchScoreDesc {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.matchScoreCircle {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.matchCircle {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+/* Skill Match Section */
+.skillMatchSection {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+}
+
+.skillGroup {
+  margin-bottom: 20px;
+}
+
+.skillGroup:last-child {
+  margin-bottom: 0;
+}
+
+.skillGroupTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px 0;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillTag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f9ff;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.skillTag svg {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.gapTag {
+  background: #fef2f2;
+  color: #ef4444;
+  border-color: #fecaca;
+}
+
+.gapTag svg {
+  color: #ef4444;
+}
+
+/* About Section */
+.aboutSection {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.aboutText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0 0 16px 0;
+}
+
+.aboutList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aboutList li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.aboutList li:last-child {
+  margin-bottom: 0;
+}
+
+.aboutList li::before {
+  content: '•';
+  position: absolute;
+  left: 8px;
+  color: #003d82;
+  font-weight: bold;
+}
+
+/* Location Section */
+.locationSection {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.locationMap {
+  position: relative;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #bfdbfe 0%, #c7d2fe 100%);
+}
+
+.mapPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
+}
+
+.locationBadge {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #1f2937;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.locationBadge svg {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+/* Bottom Spacer */
+.bottomSpacer {
+  height: 20px;
+}
+
+/* Fixed Action Bar */
+.fixedActionBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 50;
+}
+
+.applyBtn {
+  flex: 1;
+  background: #003d82;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.applyBtn svg {
+  flex-shrink: 0;
+}
+
+.bookmarkBtnFixed {
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  cursor: default;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Responsive - Tablet */
+@media (min-width: 768px) {
+  .header {
+    padding: 20px 40px;
+  }
+
+  .headerTitle {
+    font-size: 22px;
+  }
+
+  .content {
+    padding: 32px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .companyIcon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .jobTitle {
+    font-size: 28px;
+  }
+
+  .matchScoreSection {
+    padding: 24px;
+  }
+
+  .skillMatchSection {
+    padding: 24px;
+  }
+
+  .aboutSection {
+    padding: 24px;
+  }
+
+  .locationSection {
+    padding: 24px;
+  }
+
+  .locationMap {
+    height: 250px;
+  }
+
+  .fixedActionBar {
+    padding: 16px 40px;
+    max-width: 700px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive - Desktop */
+@media (min-width: 1024px) {
+  .content {
+    max-width: 800px;
+    padding: 40px;
+  }
+
+  .jobTitle {
+    font-size: 32px;
+  }
+
+  .locationMap {
+    height: 300px;
+  }
+
+  .fixedActionBar {
+    max-width: 800px;
+  }
+}

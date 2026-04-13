@@ -1,0 +1,460 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Header */
+.header {
+  background: #003d82;
+  color: white;
+  padding: 16px 20px;
+  flex-shrink: 0;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.brandTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.brandSubtitle {
+  font-size: 11px;
+  font-weight: 600;
+  margin: 2px 0 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+.settingsBtn {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 100px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Status Section */
+.statusSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.statusCard {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.statusContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statusLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+}
+
+.statusIcon {
+  flex-shrink: 0;
+}
+
+/* Records Section */
+.recordsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+}
+
+.recordCount {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0052a3;
+  background: #eff6ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.recordsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recordCard {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recordHeader {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.recordIcon {
+  font-size: 32px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f9ff;
+  border-radius: 8px;
+}
+
+.recordInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recordTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+}
+
+.recordSubtitle {
+  font-size: 13px;
+  margin: 0;
+  color: #9ca3af;
+}
+
+.verifiedBadge {
+  flex-shrink: 0;
+}
+
+.verificationDate {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0052a3;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.verificationDate::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #0052a3;
+  border-radius: 50%;
+}
+
+.recordActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.actionBtn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: default;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.viewBtn {
+  background: #003d82;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+  transition: all 0.2s ease;
+  flex: 1;
+  text-align: center;
+}
+
+/* Auto-Lock Section */
+.autoLockSection {
+  margin-top: 8px;
+}
+
+.autoLockContent {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.autoLockInfo {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.lockIcon {
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.autoLockTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #1f2937;
+}
+
+.autoLockDesc {
+  font-size: 12px;
+  margin: 2px 0 0 0;
+  color: #9ca3af;
+}
+
+/* Toggle Switch */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s ease;
+  border-radius: 24px;
+}
+
+.toggleSlider::before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.3s ease;
+  border-radius: 50%;
+}
+
+.toggle input:checked + .toggleSlider {
+  background-color: #0052a3;
+}
+
+.toggle input:checked + .toggleSlider::before {
+  transform: translateX(20px);
+}
+
+/* Bottom Navigation */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 0;
+  padding: 0;
+  height: 64px;
+  z-index: 10;
+}
+
+.navItem {
+  flex: 1;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #9ca3af;
+  cursor: default;
+  font-size: 11px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  padding: 8px;
+}
+
+.navItem.active {
+  color: #003d82;
+}
+
+.navItem svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Desktop Responsive */
+@media (min-width: 768px) {
+  .header {
+    padding: 20px 40px;
+  }
+
+  .brandTitle {
+    font-size: 22px;
+  }
+
+  .content {
+    padding: 32px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 120px;
+  }
+
+  .recordCard {
+    padding: 20px;
+  }
+
+  .recordActions {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .viewBtn {
+    flex: 0 1 auto;
+    min-width: 80px;
+  }
+
+  .statusCard {
+    padding: 24px;
+  }
+
+  .autoLockContent {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    max-width: 700px;
+    padding: 40px;
+  }
+
+  .recordCard {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .recordHeader {
+    grid-column: 1;
+    margin-bottom: 0;
+  }
+
+  .verificationDate {
+    grid-column: 1;
+    margin-top: -8px;
+  }
+
+  .recordActions {
+    grid-row: 1 / -1;
+    grid-column: 2;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100px;
+  }
+
+  .viewBtn {
+    width: 80px;
+  }
+}

@@ -1,0 +1,491 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Header */
+.header {
+  background: white;
+  padding: 16px 20px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.brandIcon {
+  width: 40px;
+  height: 40px;
+  background: #003d82;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.headerTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 8px;
+}
+
+.searchBtn,
+.notificationBtn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: default;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+}
+
+.statValue {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+}
+
+.statChange {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.statChange.positive {
+  color: #10b981;
+  background: #ecfdf5;
+}
+
+.statChange.negative {
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.statChange svg {
+  flex-shrink: 0;
+}
+
+/* Pipeline Section */
+.pipelineSection {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.pipelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 12px;
+}
+
+.pipelineTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.pipelineSubtitle {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.filterBtn {
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #003d82;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.filterBtn svg {
+  flex-shrink: 0;
+}
+
+/* Pipeline Visualization */
+.pipeline {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  height: 180px;
+  padding: 12px 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pipelineStage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pipelineBarContainer {
+  width: 100%;
+  height: 100%;
+  background: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 40px;
+}
+
+.pipelineBar {
+  width: 100%;
+  background: linear-gradient(180deg, #0284c7 0%, #0ea5e9 100%);
+  border-radius: 4px;
+  min-height: 8px;
+  transition: all 0.3s ease;
+}
+
+.stageName {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Top Matches Section */
+.topMatchesSection {
+  margin-bottom: 24px;
+}
+
+.topMatchesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.topMatchesTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.viewAllBtn {
+  background: none;
+  border: none;
+  color: #0284c7;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+  padding: 0;
+}
+
+/* Candidates List */
+.candidatesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.candidateCard {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.candidatePhoto {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+}
+
+.candidatePhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.candidateInfo {
+  flex: 1;
+}
+
+.candidateName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 2px 0;
+}
+
+.candidateTitle {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.quickInviteBtn {
+  background: #003d82;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: default;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+/* Bottom Spacer */
+.bottomSpacer {
+  height: 20px;
+}
+
+/* Fixed Bottom Navigation */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  padding: 0;
+  height: 64px;
+  z-index: 50;
+}
+
+.navItem {
+  flex: 1;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #6b7280;
+  cursor: default;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px;
+  transition: all 0.2s ease;
+}
+
+.navItem.active {
+  color: #003d82;
+}
+
+.navItem svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive - Tablet */
+@media (min-width: 768px) {
+  .header {
+    padding: 20px 40px;
+  }
+
+  .headerTitle {
+    font-size: 22px;
+  }
+
+  .headerBrand {
+    gap: 16px;
+  }
+
+  .brandIcon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .content {
+    padding: 32px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .statCard {
+    padding: 20px;
+  }
+
+  .statValue {
+    font-size: 32px;
+  }
+
+  .pipelineSection {
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .pipelineHeader {
+    margin-bottom: 28px;
+  }
+
+  .pipelineTitle {
+    font-size: 20px;
+  }
+
+  .pipeline {
+    height: 220px;
+    gap: 16px;
+  }
+
+  .candidatesList {
+    gap: 16px;
+  }
+
+  .candidateCard {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .candidatePhoto {
+    width: 60px;
+    height: 60px;
+  }
+
+  .candidateName {
+    font-size: 15px;
+  }
+
+  .candidateTitle {
+    font-size: 13px;
+  }
+}
+
+/* Responsive - Desktop */
+@media (min-width: 1024px) {
+  .content {
+    max-width: 1100px;
+    padding: 40px;
+  }
+
+  .statsGrid {
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .statCard {
+    padding: 24px;
+  }
+
+  .statValue {
+    font-size: 36px;
+  }
+
+  .pipelineSection {
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+
+  .pipeline {
+    height: 240px;
+    gap: 20px;
+    margin: 24px 0;
+  }
+
+  .candidateCard {
+    padding: 24px;
+  }
+
+  .candidatePhoto {
+    width: 64px;
+    height: 64px;
+  }
+}
