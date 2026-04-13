@@ -111,7 +111,7 @@ http://localhost:3000
 #### Requirements
 - Node.js v18 or later
 - npm
-
+- Git 
 ### AI Tools:
 1. Claude Haiku 4.5
 
