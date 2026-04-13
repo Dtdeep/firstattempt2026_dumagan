@@ -1,0 +1,332 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+  height: 60px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #003d82;
+  margin: 0;
+}
+
+.settingsBtn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.settingsBtn:hover {
+  background: #f3f4f6;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 80px;
+  overflow-y: auto;
+}
+
+.profileSection {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.profilePicture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  border: 3px solid #003d82;
+  background: #e5e7eb;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.subtext {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 16px 0;
+}
+
+.verified {
+  color: #003d82;
+  font-weight: 500;
+}
+
+.separator {
+  margin: 0 8px;
+}
+
+.classYear {
+  color: #9ca3af;
+}
+
+.cvButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  background: #003d82;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cvButton:hover {
+  background: #0052a3;
+}
+
+.statsSection {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.statCard {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: #003d82;
+  margin: 0 0 4px 0;
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ca3af;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.viewAll {
+  font-size: 13px;
+  color: #003d82;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.viewAll:hover {
+  color: #0052a3;
+  text-decoration: underline;
+}
+
+.editBtn {
+  background: none;
+  border: none;
+  color: #003d82;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.editBtn:hover {
+  color: #0052a3;
+}
+
+.honorsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.honorItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.honorItem svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.honorTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.honorDesc {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill {
+  background: #dbeafe;
+  color: #003d82;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.addSkill {
+  background: #f3f4f6;
+  color: #003d82;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.addSkill:hover {
+  background: #e5e7eb;
+}
+
+.bottomNav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  padding: 8px 0;
+  flex-shrink: 0;
+  height: 70px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 10px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.navItem:hover {
+  color: #003d82;
+}
+
+.navItem.active {
+  color: #003d82;
+}
+
+.navItem svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 640px) {
+  .content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .profileSection {
+    padding: 32px;
+  }
+
+  .statsSection {
+    gap: 16px;
+  }
+
+  .statCard {
+    padding: 20px;
+  }
+}
