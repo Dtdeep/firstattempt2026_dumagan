@@ -1,5 +1,7 @@
+// KEY FILE: Main candidate navigation hub for job browsing flow.
 'use client';
 
+import { useRouter } from 'next/navigation';
 import styles from './JobSearch.module.css';
 
 interface JobCard {
@@ -16,6 +18,8 @@ interface JobCard {
 }
 
 export default function JobSearch() {
+  const router = useRouter();
+
   const jobCards: JobCard[] = [
     {
       id: '1',
@@ -60,13 +64,13 @@ export default function JobSearch() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <button className={styles.backBtn}>
+          <button className={styles.backBtn} onClick={() => router.push('/careerpassport-profile')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
           </button>
           <h1 className={styles.headerTitle}>Job Search</h1>
-          <button className={styles.notificationBtn}>
+          <button className={styles.notificationBtn} onClick={() => router.push('/application-status')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
               <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
@@ -132,12 +136,12 @@ export default function JobSearch() {
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Hand-Picked for You</h2>
-            <button className={styles.seeAllBtn}>See all</button>
+            <button className={styles.seeAllBtn} onClick={() => router.push('/job-search')}>See all</button>
           </div>
 
           <div className={styles.jobsList}>
             {jobCards.map((job) => (
-              <div key={job.id} className={styles.jobCard}>
+              <div key={job.id} className={styles.jobCard} onClick={() => router.push('/job-details')}>
                 <div className={styles.jobHeader}>
                   <div className={styles.companyIcon}>{job.icon}</div>
                   <div className={styles.jobHeaderInfo}>
@@ -175,8 +179,22 @@ export default function JobSearch() {
                 </div>
 
                 <div className={styles.jobActions}>
-                  <button className={styles.applyBtn}>Apply Now</button>
-                  <button className={styles.bookmarkBtn}>
+                  <button
+                    className={styles.applyBtn}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      router.push('/job-details');
+                    }}
+                  >
+                    Apply Now
+                  </button>
+                  <button
+                    className={styles.bookmarkBtn}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      router.push('/application-status');
+                    }}
+                  >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                     </svg>
@@ -190,27 +208,27 @@ export default function JobSearch() {
 
       {/* Bottom Navigation */}
       <nav className={styles.bottomNav}>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/job-search')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
           </svg>
           <span>Search</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/application-status')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="3" y="3" width="18" height="18" rx="2"></rect>
             <path d="M3 9h18"></path>
           </svg>
           <span>Applied</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/instant-application')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
           <span>Messages</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/careerpassport-profile')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>

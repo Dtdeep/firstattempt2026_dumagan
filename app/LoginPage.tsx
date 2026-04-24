@@ -13,6 +13,23 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const getSignInDestination = () => {
+    if (activeTab === 'employer') {
+      return '/employer-dashboard';
+    }
+
+    if (activeTab === 'staff') {
+      return '/admin-analytics';
+    }
+
+    return '/careerpassport-profile';
+  };
+
+  const handleSignIn = (event?: React.FormEvent) => {
+    event?.preventDefault();
+    router.push(getSignInDestination());
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -39,7 +56,7 @@ export default function LoginPage() {
           ))}
         </div>
 
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSignIn}>
           <div className={styles.formGroup}>
             <label className={styles.label}>Email or ID</label>
             <div className={styles.inputWrapper}>
@@ -129,11 +146,15 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <a href="#" className={styles.forgotPassword}>
+          <button
+            type="button"
+            className={styles.forgotPassword}
+            onClick={() => router.push('/application-status')}
+          >
             Forgot Password?
-          </a>
+          </button>
 
-          <button type="button" className={styles.submitButton} onClick={() => router.push('/careerpassport-profile')}>
+          <button type="submit" className={styles.submitButton}>
             Sign In →
           </button>
         </form>
@@ -143,7 +164,7 @@ export default function LoginPage() {
         </div>
 
         <div className={styles.oauthButtons}>
-          <button className={styles.oauthButton}>
+          <button className={styles.oauthButton} type="button" onClick={handleSignIn}>
             <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
               <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
@@ -152,7 +173,7 @@ export default function LoginPage() {
             </svg>
             Sign in with Google
           </button>
-          <button className={styles.oauthButton}>
+          <button className={styles.oauthButton} type="button" onClick={handleSignIn}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M9 11C10.1046 11 11 10.1046 11 9C11 7.89543 10.1046 7 9 7C7.89543 7 7 7.89543 7 9C7 10.1046 7.89543 11 9 11Z"

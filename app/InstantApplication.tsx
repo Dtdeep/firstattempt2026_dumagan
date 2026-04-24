@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import styles from './InstantApplication.module.css';
 
 interface AcademicRecord {
@@ -9,6 +10,8 @@ interface AcademicRecord {
 }
 
 export default function InstantApplication() {
+  const router = useRouter();
+
   const academicRecords: AcademicRecord[] = [
     {
       id: '1',
@@ -27,13 +30,13 @@ export default function InstantApplication() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <button className={styles.backBtn}>
+          <button className={styles.backBtn} onClick={() => router.push('/job-details')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
           </button>
           <h1 className={styles.headerTitle}>Instant Application</h1>
-          <button className={styles.moreBtn}>
+          <button className={styles.moreBtn} onClick={() => router.push('/application-status')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <circle cx="12" cy="12" r="2" />
               <circle cx="12" cy="5" r="2" />
@@ -69,7 +72,7 @@ export default function InstantApplication() {
           <p className={styles.verificationText}>
             This profile has been officially verified by the university registrar's office for the 2023-2024 academic year
           </p>
-          <button className={styles.viewCredentialsBtn}>
+          <button className={styles.viewCredentialsBtn} onClick={() => router.push('/vault')}>
             View Credentials
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -93,7 +96,7 @@ export default function InstantApplication() {
                   <p className={styles.recordTitle}>{record.title}</p>
                   <p className={styles.recordDate}>{record.date}</p>
                 </div>
-                <button className={styles.downloadBtn}>
+                <button className={styles.downloadBtn} onClick={() => router.push(`/vault/${record.id}`)}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
@@ -109,7 +112,7 @@ export default function InstantApplication() {
         <section className={styles.coverLetterSection}>
           <div className={styles.coverLetterHeader}>
             <h3 className={styles.sectionTitle}>Cover Letter</h3>
-            <button className={styles.editBtn}>
+            <button className={styles.editBtn} onClick={() => router.push('/careerpassport-profile')}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                 <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
@@ -123,7 +126,7 @@ export default function InstantApplication() {
         </section>
 
         {/* Preview Application Button */}
-        <button className={styles.previewBtn}>
+        <button className={styles.previewBtn} onClick={() => router.push('/application-status')}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
             <circle cx="12" cy="12" r="3"></circle>
@@ -137,7 +140,7 @@ export default function InstantApplication() {
 
       {/* Fixed Bottom Buttons */}
       <div className={styles.fixedButtonBar}>
-        <button className={styles.submitBtn}>
+        <button className={styles.submitBtn} onClick={() => router.push('/application-status')}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
             <path d="M5 13l4 4L19 7" stroke="white" strokeWidth="2" fill="none" />
           </svg>

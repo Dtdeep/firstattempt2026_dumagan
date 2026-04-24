@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import styles from './DigitalVault.module.css';
 
 interface VaultRecord {
@@ -12,6 +13,8 @@ interface VaultRecord {
 }
 
 export default function DigitalVault() {
+  const router = useRouter();
+
   const vaultRecords: VaultRecord[] = [
     {
       id: '1',
@@ -61,7 +64,7 @@ export default function DigitalVault() {
               <p className={styles.brandSubtitle}>SECURE STORAGE</p>
             </div>
           </div>
-          <div className={styles.settingsBtn} style={{ pointerEvents: 'none' }}>
+          <button className={styles.settingsBtn} onClick={() => router.push('/careerpassport-profile')}>
             <svg
               width="24"
               height="24"
@@ -74,7 +77,7 @@ export default function DigitalVault() {
               <circle cx="12" cy="5" r="1" />
               <circle cx="12" cy="19" r="1" />
             </svg>
-          </div>
+          </button>
         </div>
       </header>
 
@@ -114,7 +117,11 @@ export default function DigitalVault() {
 
           <div className={styles.recordsList}>
             {vaultRecords.map((record) => (
-              <div key={record.id} className={styles.recordCard}>
+              <div
+                key={record.id}
+                className={styles.recordCard}
+                onClick={() => router.push(`/vault/${record.id}`)}
+              >
                 <div className={styles.recordHeader}>
                   <div className={styles.recordIcon}>{record.icon}</div>
                   <div className={styles.recordInfo}>
@@ -142,7 +149,16 @@ export default function DigitalVault() {
                 <p className={styles.verificationDate}>{record.verificationDate}</p>
 
                 <div className={styles.recordActions}>
-                  <div className={styles.actionBtn} title="Download">
+                  <div
+                    className={styles.actionBtn}
+                    title="Download"
+                    role="button"
+                    tabIndex={0}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      router.push(`/vault/${record.id}`);
+                    }}
+                  >
                     <svg
                       width="20"
                       height="20"
@@ -156,7 +172,16 @@ export default function DigitalVault() {
                       <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
                   </div>
-                  <div className={styles.actionBtn} title="Share">
+                  <div
+                    className={styles.actionBtn}
+                    title="Share"
+                    role="button"
+                    tabIndex={0}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      router.push('/application-status');
+                    }}
+                  >
                     <svg
                       width="20"
                       height="20"
@@ -172,7 +197,15 @@ export default function DigitalVault() {
                       <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                     </svg>
                   </div>
-                  <div className={styles.viewBtn}>
+                  <div
+                    className={styles.viewBtn}
+                    role="button"
+                    tabIndex={0}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      router.push(`/vault/${record.id}`);
+                    }}
+                  >
                     View
                   </div>
                 </div>
@@ -216,13 +249,18 @@ export default function DigitalVault() {
 
       {/* Bottom Navigation */}
       <nav className={styles.bottomNav}>
-        <div className={styles.navItem}>
+        <div
+          className={styles.navItem}
+          role="button"
+          tabIndex={0}
+          onClick={() => router.push('/job-search')}
+        >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
           </svg>
           <span>Home</span>
         </div>
-        <div className={styles.navItem + ' ' + styles.active}>
+        <div className={styles.navItem + ' ' + styles.active} role="button" tabIndex={0} onClick={() => router.push('/vault')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="3" y="6" width="18" height="12" rx="2"></rect>
             <path d="M3 10h18"></path>
@@ -230,14 +268,24 @@ export default function DigitalVault() {
           </svg>
           <span>Vault</span>
         </div>
-        <div className={styles.navItem}>
+        <div
+          className={styles.navItem}
+          role="button"
+          tabIndex={0}
+          onClick={() => router.push('/application-status')}
+        >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
           <span>Identity</span>
         </div>
-        <div className={styles.navItem}>
+        <div
+          className={styles.navItem}
+          role="button"
+          tabIndex={0}
+          onClick={() => router.push('/careerpassport-profile')}
+        >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>

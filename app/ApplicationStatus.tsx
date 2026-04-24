@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import styles from './ApplicationStatus.module.css';
 
 interface TimelineEvent {
@@ -11,6 +12,8 @@ interface TimelineEvent {
 }
 
 export default function ApplicationStatus() {
+  const router = useRouter();
+
   const timelineEvents: TimelineEvent[] = [
     {
       id: '1',
@@ -47,13 +50,13 @@ export default function ApplicationStatus() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <button className={styles.backBtn}>
+          <button className={styles.backBtn} onClick={() => router.push('/job-search')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
           </button>
           <h1 className={styles.headerTitle}>Application Status</h1>
-          <button className={styles.moreBtn}>
+          <button className={styles.moreBtn} onClick={() => router.push('/careerpassport-profile')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
               <circle cx="12" cy="12" r="2" />
               <circle cx="12" cy="5" r="2" />
@@ -119,7 +122,7 @@ export default function ApplicationStatus() {
               <h3 className={styles.recruiterName}>Sarah Jenkins</h3>
               <p className={styles.recruiterTitle}>Senior Technical Recruiter</p>
             </div>
-            <button className={styles.bookmarkBtn}>
+            <button className={styles.bookmarkBtn} onClick={() => router.push('/job-details')}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
               </svg>
@@ -158,27 +161,27 @@ export default function ApplicationStatus() {
 
       {/* Fixed Bottom Navigation */}
       <nav className={styles.bottomNav}>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/job-search')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
             <polyline points="9 22 9 12 15 12 15 22"></polyline>
           </svg>
           <span>Jobs</span>
         </button>
-        <button className={styles.navItem + ' ' + styles.active}>
+        <button className={styles.navItem + ' ' + styles.active} onClick={() => router.push('/application-status')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="3" y="3" width="18" height="18" rx="2"></rect>
             <path d="M3 9h18"></path>
           </svg>
           <span>Applied</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/instant-application')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
           <span>Messages</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/careerpassport-profile')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import styles from './JobDetails.module.css';
 
 interface SkillItem {
@@ -8,6 +9,8 @@ interface SkillItem {
 }
 
 export default function JobDetails() {
+  const router = useRouter();
+
   const matchedSkills: SkillItem[] = [
     { name: 'React Basics', icon: '⚛️' },
     { name: 'Motion Design', icon: '✨' },
@@ -23,13 +26,13 @@ export default function JobDetails() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <button className={styles.backBtn}>
+          <button className={styles.backBtn} onClick={() => router.push('/job-search')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
           </button>
           <h1 className={styles.headerTitle}>Job Details</h1>
-          <button className={styles.shareBtn}>
+          <button className={styles.shareBtn} onClick={() => router.push('/application-status')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="18" cy="5" r="3"></circle>
               <circle cx="6" cy="12" r="3"></circle>
@@ -172,13 +175,13 @@ export default function JobDetails() {
 
       {/* Fixed Bottom Action Bar */}
       <div className={styles.fixedActionBar}>
-        <button className={styles.applyBtn}>
+        <button className={styles.applyBtn} onClick={() => router.push('/instant-application')}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
             <path d="M9 16.2L4.8 12m-1.4 1.4L9 19 21 7" stroke="white" strokeWidth="2" fill="none" />
           </svg>
           Apply with Career Passport
         </button>
-        <button className={styles.bookmarkBtnFixed}>
+        <button className={styles.bookmarkBtnFixed} onClick={() => router.push('/application-status')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
           </svg>

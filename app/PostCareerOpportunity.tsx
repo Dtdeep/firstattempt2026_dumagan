@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './PostCareerOpportunity.module.css';
 
 interface TeamMember {
@@ -11,6 +12,7 @@ interface TeamMember {
 }
 
 export default function PostCareerOpportunity() {
+  const router = useRouter();
   const [locationPreference, setLocationPreference] = useState('on-site');
   const [showSalaryRange, setShowSalaryRange] = useState(true);
   const [alumniExclusive, setAlumniExclusive] = useState(false);
@@ -29,7 +31,7 @@ export default function PostCareerOpportunity() {
     <div className={styles.container}>
       {/* Header */}
       <header className={styles.header}>
-        <button className={styles.closeBtn}>
+        <button className={styles.closeBtn} onClick={() => router.push('/employer-dashboard')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -90,7 +92,7 @@ export default function PostCareerOpportunity() {
             <div className={styles.locationButtons}>
               <button
                 className={`${styles.locationBtn} ${locationPreference === 'on-site' ? styles.active : ''}`}
-                disabled
+                onClick={() => setLocationPreference('on-site')}
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -98,14 +100,20 @@ export default function PostCareerOpportunity() {
                 </svg>
                 <span>On-site</span>
               </button>
-              <button className={styles.locationBtn} disabled>
+              <button
+                className={`${styles.locationBtn} ${locationPreference === 'remote' ? styles.active : ''}`}
+                onClick={() => setLocationPreference('remote')}
+              >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 17v-7l-10-6-10 6v7"></path>
                   <path d="M2 12h20"></path>
                 </svg>
                 <span>Remote</span>
               </button>
-              <button className={styles.locationBtn} disabled>
+              <button
+                className={`${styles.locationBtn} ${locationPreference === 'hybrid' ? styles.active : ''}`}
+                onClick={() => setLocationPreference('hybrid')}
+              >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="11" r="3"></circle>
                   <path d="M2 12a10 10 0 1 1 20 0"></path>
@@ -133,7 +141,7 @@ export default function PostCareerOpportunity() {
               <input
                 type="checkbox"
                 checked={showSalaryRange}
-                disabled
+                onChange={(event) => setShowSalaryRange(event.target.checked)}
               />
               <span className={styles.toggleSlider}></span>
             </label>
@@ -157,7 +165,7 @@ export default function PostCareerOpportunity() {
               <input
                 type="checkbox"
                 checked={alumniExclusive}
-                disabled
+                onChange={(event) => setAlumniExclusive(event.target.checked)}
               />
               <span className={styles.toggleSlider}></span>
             </label>
@@ -170,7 +178,7 @@ export default function PostCareerOpportunity() {
 
       {/* Fixed Bottom Section */}
       <div className={styles.fixedBottom}>
-        <button className={styles.continueBtn}>
+        <button className={styles.continueBtn} onClick={() => router.push('/applicant-screening')}>
           Continue to Description
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
             <path d="M5 12h14M12 5l7 7-7 7" />

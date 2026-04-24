@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './ApplicantScreening.module.css';
 
 interface Applicant {
@@ -16,6 +17,7 @@ interface Applicant {
 }
 
 export default function ApplicantScreening() {
+  const router = useRouter();
   const [activeFilter, setActiveFilter] = useState('all');
 
   const applicants: Applicant[] = [
@@ -58,13 +60,13 @@ export default function ApplicantScreening() {
     <div className={styles.container}>
       {/* Header */}
       <header className={styles.header}>
-        <button className={styles.backBtn}>
+        <button className={styles.backBtn} onClick={() => router.push('/employer-dashboard')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
         </button>
         <h1 className={styles.headerTitle}>Applicant Screening</h1>
-        <button className={styles.searchBtn}>
+        <button className={styles.searchBtn} onClick={() => router.push('/admin-analytics')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
@@ -85,19 +87,19 @@ export default function ApplicantScreening() {
         <div className={styles.filterContainer}>
           <button
             className={`${styles.filterBtn} ${activeFilter === 'all' ? styles.active : ''}`}
-            disabled
+            onClick={() => setActiveFilter('all')}
           >
             All Applicants
           </button>
           <button
             className={`${styles.filterBtn} ${activeFilter === 'matched' ? styles.active : ''}`}
-            disabled
+            onClick={() => setActiveFilter('matched')}
           >
             Highly Matched
           </button>
           <button
             className={`${styles.filterBtn} ${activeFilter === 'recent' ? styles.active : ''}`}
-            disabled
+            onClick={() => setActiveFilter('recent')}
           >
             Recent
           </button>
@@ -136,7 +138,7 @@ export default function ApplicantScreening() {
                   )}
 
                   {/* View Profile Link */}
-                  <button className={styles.viewProfileLink} disabled>
+                  <button className={styles.viewProfileLink} onClick={() => router.push('/careerpassport-profile')}>
                     View Profile
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -152,7 +154,7 @@ export default function ApplicantScreening() {
                   >
                     {applicant.initials}
                   </div>
-                  <button className={styles.bookmarkBtn} disabled>
+                  <button className={styles.bookmarkBtn} onClick={() => router.push('/admin-analytics')}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                     </svg>
@@ -169,14 +171,14 @@ export default function ApplicantScreening() {
 
       {/* Fixed Bottom Navigation */}
       <nav className={styles.fixedNav}>
-        <button className={styles.navItem} disabled>
+        <button className={`${styles.navItem} ${styles.active}`} onClick={() => router.push('/applicant-screening')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 3h-3V2h-2v1H8"></path>
           </svg>
           <span>Applicants</span>
         </button>
-        <button className={styles.navItem} disabled>
+        <button className={styles.navItem} onClick={() => router.push('/employer-dashboard')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
             <circle cx="9" cy="7" r="4"></circle>
@@ -185,13 +187,13 @@ export default function ApplicantScreening() {
           </svg>
           <span>Candidates</span>
         </button>
-        <button className={styles.navItem} disabled>
+        <button className={styles.navItem} onClick={() => router.push('/admin-analytics')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
           <span>Messages</span>
         </button>
-        <button className={`${styles.navItem} ${styles.active}`} disabled>
+        <button className={styles.navItem} onClick={() => router.push('/careerpassport-profile')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"></path>
             <path d="M3.6 9h16.8M3.6 15h16.8"></path>

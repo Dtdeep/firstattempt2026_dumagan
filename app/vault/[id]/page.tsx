@@ -3,12 +3,19 @@
 import { useRouter, useParams } from 'next/navigation';
 import styles from '../../DigitalVault.module.css';
 
+interface VaultRecord {
+  icon: string;
+  title: string;
+  subtitle: string;
+  verificationDate: string;
+}
+
 export default function VaultDetailPage() {
   const router = useRouter();
   const params = useParams();
   const recordId = params.id as string;
 
-  const records: Record<string, any> = {
+  const records: Record<string, VaultRecord> = {
     '1': {
       icon: '🎓',
       title: 'e-Diploma',
@@ -36,7 +43,7 @@ export default function VaultDetailPage() {
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.headerContent}>
-            <button onClick={() => router.back()} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontSize: '24px' }}>
+            <button onClick={() => router.push('/vault')} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontSize: '24px' }}>
               ←
             </button>
             <h1 className={styles.brandTitle}>Record Not Found</h1>
@@ -54,7 +61,7 @@ export default function VaultDetailPage() {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push('/vault')}
             style={{
               background: 'none',
               border: 'none',
@@ -98,13 +105,13 @@ export default function VaultDetailPage() {
 
       {/* Bottom Navigation */}
       <nav className={styles.bottomNav}>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/job-search')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
           </svg>
           <span>Home</span>
         </button>
-        <button className={styles.navItem + ' ' + styles.active}>
+        <button className={styles.navItem + ' ' + styles.active} onClick={() => router.push('/vault')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="3" y="6" width="18" height="12" rx="2"></rect>
             <path d="M3 10h18"></path>
@@ -112,14 +119,14 @@ export default function VaultDetailPage() {
           </svg>
           <span>Vault</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/application-status')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
           <span>Identity</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/careerpassport-profile')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>

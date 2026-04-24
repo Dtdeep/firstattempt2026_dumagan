@@ -12,7 +12,7 @@ export default function CareerPassportProfile() {
     <div className={styles.container}>
       <header className={styles.header}>
         <h1 className={styles.title}>Career Passport</h1>
-        <button className={styles.settingsBtn}>
+        <button className={styles.settingsBtn} onClick={() => router.push('/application-status')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" r="2" fill="currentColor"/>
             <circle cx="12" cy="5" r="2" fill="currentColor"/>
@@ -62,7 +62,13 @@ export default function CareerPassportProfile() {
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <h3 className={styles.sectionTitle}>Academic Honors</h3>
-            <a href="#" className={styles.viewAll}>View All</a>
+            <button
+              type="button"
+              className={styles.viewAll}
+              onClick={() => router.push('/application-status')}
+            >
+              View All
+            </button>
           </div>
           <div className={styles.honorsList}>
             <div className={styles.honorItem}>
@@ -108,13 +114,13 @@ export default function CareerPassportProfile() {
 
       {/* Bottom Navigation */}
       <nav className={styles.bottomNav}>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/job-search')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
           </svg>
           <span>Home</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/vault')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="3" y="6" width="18" height="12" rx="2"></rect>
             <path d="M3 10h18"></path>
@@ -122,14 +128,14 @@ export default function CareerPassportProfile() {
           </svg>
           <span>Vault</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/application-status')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
           <span>Identity</span>
         </button>
-        <button className={styles.navItem + ' ' + styles.active}>
+        <button className={styles.navItem + ' ' + styles.active} onClick={() => router.push('/careerpassport-profile')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>

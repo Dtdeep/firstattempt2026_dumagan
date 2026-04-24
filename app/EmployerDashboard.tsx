@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import styles from './EmployerDashboard.module.css';
 
 interface Candidate {
@@ -15,6 +16,8 @@ interface PipelineStage {
 }
 
 export default function EmployerDashboard() {
+  const router = useRouter();
+
   const candidates: Candidate[] = [
     {
       id: '1',
@@ -63,13 +66,13 @@ export default function EmployerDashboard() {
             <h1 className={styles.headerTitle}>Employer Dashboard</h1>
           </div>
           <div className={styles.headerActions}>
-            <button className={styles.searchBtn}>
+            <button className={styles.searchBtn} onClick={() => router.push('/applicant-screening')}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
-            <button className={styles.notificationBtn}>
+            <button className={styles.notificationBtn} onClick={() => router.push('/admin-analytics')}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                 <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
@@ -127,7 +130,7 @@ export default function EmployerDashboard() {
               <h2 className={styles.pipelineTitle}>Pipeline Overview</h2>
               <p className={styles.pipelineSubtitle}>Real-time candidate conversion</p>
             </div>
-            <button className={styles.filterBtn}>
+            <button className={styles.filterBtn} onClick={() => router.push('/admin-analytics')}>
               <span>Last 30 days</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="m6 9 6 6 6-6" />
@@ -157,12 +160,12 @@ export default function EmployerDashboard() {
         <section className={styles.topMatchesSection}>
           <div className={styles.topMatchesHeader}>
             <h2 className={styles.topMatchesTitle}>Top Matches</h2>
-            <button className={styles.viewAllBtn}>View All</button>
+            <button className={styles.viewAllBtn} onClick={() => router.push('/applicant-screening')}>View All</button>
           </div>
 
           <div className={styles.candidatesList}>
             {candidates.map((candidate) => (
-              <div key={candidate.id} className={styles.candidateCard}>
+              <div key={candidate.id} className={styles.candidateCard} onClick={() => router.push('/applicant-screening')}>
                 <div className={styles.candidatePhoto}>
                   <img src={candidate.photo} alt={candidate.name} />
                 </div>
@@ -170,7 +173,15 @@ export default function EmployerDashboard() {
                   <h3 className={styles.candidateName}>{candidate.name}</h3>
                   <p className={styles.candidateTitle}>{candidate.title}</p>
                 </div>
-                <button className={styles.quickInviteBtn}>Quick Invite</button>
+                <button
+                  className={styles.quickInviteBtn}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    router.push('/post-career-opportunity');
+                  }}
+                >
+                  Quick Invite
+                </button>
               </div>
             ))}
           </div>
@@ -182,7 +193,7 @@ export default function EmployerDashboard() {
 
       {/* Fixed Bottom Navigation */}
       <nav className={styles.bottomNav}>
-        <button className={styles.navItem + ' ' + styles.active}>
+        <button className={styles.navItem + ' ' + styles.active} onClick={() => router.push('/employer-dashboard')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <rect x="3" y="3" width="9" height="9" />
             <rect x="12" y="3" width="9" height="9" />
@@ -191,14 +202,14 @@ export default function EmployerDashboard() {
           </svg>
           <span>Dashboard</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/post-career-opportunity')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="3" y="3" width="18" height="18" rx="2"></rect>
             <path d="M3 9h18"></path>
           </svg>
           <span>Jobs</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/applicant-screening')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
             <circle cx="9" cy="7" r="4"></circle>
@@ -207,13 +218,13 @@ export default function EmployerDashboard() {
           </svg>
           <span>Candidates</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/admin-analytics')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
           <span>Messages</span>
         </button>
-        <button className={styles.navItem}>
+        <button className={styles.navItem} onClick={() => router.push('/careerpassport-profile')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>

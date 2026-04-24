@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './AdminAnalytics.module.css';
 
 interface MetricCard {
@@ -26,6 +27,8 @@ interface SectorData {
 }
 
 export default function AdminAnalytics() {
+  const router = useRouter();
+
   const metrics: MetricCard[] = [
     {
       title: 'Employment Rate',
@@ -113,13 +116,13 @@ export default function AdminAnalytics() {
       <header className={styles.header}>
         <h1 className={styles.headerTitle}>Admin Analytics</h1>
         <div className={styles.headerActions}>
-          <button className={styles.headerBtn} disabled>
+          <button className={styles.headerBtn} onClick={() => router.push('/applicant-screening')}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.35-4.35"></path>
             </svg>
           </button>
-          <button className={styles.headerBtn} disabled>
+          <button className={styles.headerBtn} onClick={() => router.push('/employer-dashboard')}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="1"></circle>
               <circle cx="19" cy="12" r="1"></circle>
@@ -149,7 +152,7 @@ export default function AdminAnalytics() {
         <section className={styles.chartSection}>
           <div className={styles.chartHeader}>
             <h2 className={styles.chartTitle}>Employment Trends</h2>
-            <button className={styles.periodBtn} disabled>Last 6 Months</button>
+            <button className={styles.periodBtn} onClick={() => router.push('/application-status')}>Last 6 Months</button>
           </div>
 
           <div className={styles.barChart}>
@@ -221,7 +224,7 @@ export default function AdminAnalytics() {
         <section className={styles.chartSection}>
           <div className={styles.placementsHeader}>
             <h2 className={styles.chartTitle}>Recent Placements</h2>
-            <button className={styles.viewAllBtn} disabled>View All</button>
+            <button className={styles.viewAllBtn} onClick={() => router.push('/application-status')}>View All</button>
           </div>
 
           <div className={styles.placementsTable}>
@@ -257,27 +260,27 @@ export default function AdminAnalytics() {
 
       {/* Fixed Bottom Navigation */}
       <nav className={styles.fixedNav}>
-        <button className={styles.navItem} disabled>
+        <button className={styles.navItem} onClick={() => router.push('/employer-dashboard')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
             <polyline points="9 22 9 12 15 12 15 22"></polyline>
           </svg>
           <span>Dashboard</span>
         </button>
-        <button className={`${styles.navItem} ${styles.active}`} disabled>
+        <button className={`${styles.navItem} ${styles.active}`} onClick={() => router.push('/admin-analytics')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="12" y1="2" x2="12" y2="22"></line>
             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
           </svg>
           <span>Analytics</span>
         </button>
-        <button className={styles.navItem} disabled>
+        <button className={styles.navItem} onClick={() => router.push('/application-status')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 12h18M3 6h18M3 18h18"></path>
           </svg>
           <span>Reports</span>
         </button>
-        <button className={styles.navItem} disabled>
+        <button className={styles.navItem} onClick={() => router.push('/careerpassport-profile')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="1"></circle>
             <path d="M12 1v6m6.16-1.86l-4.24 4.24m1 6.16l4.24-4.24m-12.32 0l4.24 4.24m-1-6.16l-4.24 4.24"></path>
