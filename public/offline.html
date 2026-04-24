@@ -1,72 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Career Passport - Offline</title>
-    <meta name="theme-color" content="#003d82" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#003d82">
+    <title>Offline - Career Passport</title>
     <style>
-      :root {
-        color-scheme: light;
-      }
       * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
       }
+
       body {
-        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(135deg, #003d82 0%, #0052ad 100%);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         min-height: 100vh;
-        display: grid;
-        place-items: center;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f8f9fa;
-        color: #171717;
-        padding: 24px;
+        padding: 20px;
       }
-      main {
-        width: min(460px, 100%);
-        border-radius: 16px;
-        border: 1px solid #d1d5db;
-        background: #ffffff;
-        padding: 24px;
+
+      .container {
         text-align: center;
-        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+        max-width: 500px;
+        animation: fadeIn 0.5s ease-in;
       }
-      .logo {
-        width: 56px;
-        height: 56px;
-        margin: 0 auto 14px;
-        border-radius: 14px;
-        background: #003d82;
-        display: grid;
-        place-items: center;
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      .logo img {
-        width: 28px;
-        height: 28px;
-        filter: brightness(0) invert(1);
+
+      .icon {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        animation: pulse 2s ease-in-out infinite;
       }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
       h1 {
-        margin: 0 0 10px;
-        color: #003d82;
-        font-size: 1.3rem;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
       }
+
       p {
-        margin: 0;
-        line-height: 1.55;
-        color: #374151;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #ff4444;
+        border-radius: 50%;
+        animation: blink 1.5s ease-in-out infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      button {
+        background: #ffffff;
+        color: #003d82;
+        border: none;
+        padding: 14px 36px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .cached-pages {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .cached-pages h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+      }
+
+      .page-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .page-link {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+      }
+
+      .page-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .icon {
+          font-size: 4rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <div class="logo" aria-hidden="true">
-        <img src="/globe.svg" alt="" />
+    <div class="container">
+      <div class="icon">📡</div>
+      <h1>You're Offline</h1>
+      <div class="status">
+        <span class="status-dot"></span>
+        <span>No internet connection</span>
       </div>
-      <h1>You are offline</h1>
-      <p>
-        Career Passport cannot reach the network right now. Reconnect to continue using live
-        features.
-      </p>
-    </main>
+      <p>Career Passport needs an internet connection to load new content. Please check your connection and try again.</p>
+      <button onclick="window.location.reload()">Try Again</button>
+
+      <div class="cached-pages">
+        <h2>Available Offline Pages</h2>
+        <div class="page-list">
+          <a href="/" class="page-link">Home</a>
+          <a href="/job-search" class="page-link">Job Search</a>
+          <a href="/vault" class="page-link">Vault</a>
+          <a href="/employer-dashboard" class="page-link">Dashboard</a>
+          <a href="/application-status" class="page-link">Applications</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Auto-retry when connection is restored
+      window.addEventListener('online', () => {
+        window.location.reload();
+      });
+
+      // Check connection status periodically
+      setInterval(() => {
+        if (navigator.onLine) {
+          window.location.reload();
+        }
+      }, 5000);
+    </script>
   </body>
 </html>

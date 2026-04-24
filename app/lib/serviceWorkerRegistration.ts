@@ -1,4 +1,4 @@
-// KEY FILE: Shared helper that registers /sw.js in production safely.
+// KEY FILE: Shared helper that registers /sw.js safely (now works in dev mode too)
 export interface RegisterServiceWorkerOptions {
   onSuccess?: (registration: ServiceWorkerRegistration) => void;
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
@@ -53,10 +53,7 @@ function observeWorkerUpdates(
 export async function registerServiceWorker(
   options: RegisterServiceWorkerOptions = {},
 ): Promise<ServiceWorkerRegistration | null> {
-  if (process.env.NODE_ENV !== "production") {
-    return null;
-  }
-
+  // REMOVED production-only check to allow dev testing
   if (typeof window === "undefined" || !("serviceWorker" in navigator)) {
     return null;
   }
@@ -67,11 +64,12 @@ export async function registerServiceWorker(
       updateViaCache: "none",
     });
 
+    console.log("✅ Service Worker registered successfully");
     observeWorkerUpdates(registration, options.onUpdate);
     options.onSuccess?.(registration);
     return registration;
   } catch (error) {
-    console.error("Service worker registration failed:", error);
+    console.error("❌ Service worker registration failed:", error);
     return null;
   }
 }
